@@ -27,10 +27,11 @@ const Explorer = ({ appData }) => {
       const response = await axios.get(url)
       const data = response.data
       if (!data.success) throw new Error(data.message)
+      console.log('data: ', data)
       const pinsResponse =  data.pins
 
       // update the pins state
-      setPins(pinsResponse.pins)
+      setPins(pinsResponse)
       setSuccess(true)
       setOnFetch(false)
     } catch (error) {
