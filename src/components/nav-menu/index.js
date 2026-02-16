@@ -14,16 +14,16 @@ import { NavLink } from 'react-router-dom' // Used to navigate between routes
 import Logo from './psf-logo.png'
 
 function NavMenu (props) {
-  const { logout } = props.appData
+  const { logout, currentPath } = props.appData
 
   // Navbar state
   const [expanded, setExpanded] = useState(false)
 
   // Handle click event
- // const handleClickEvent = () => {
- //   // Collapse the navbar
- //   setExpanded(false)
- // }
+  const handleClickEvent = () => {
+    // Collapse the navbar
+    setExpanded(false)
+  }
 
   return (
     <>
@@ -85,9 +85,66 @@ function NavMenu (props) {
               alignItems: 'center',
               justifyContent: 'flex-end',
               width: '100%',
-              paddingRight: '2rem'
+              paddingRight: '2rem',
+              gap: '1rem'
             }}
           >
+            <NavLink
+              to='/'
+              onClick={handleClickEvent}
+              style={{
+                padding: '0.625rem 1.25rem',
+                borderRadius: '8px',
+                color: currentPath === '/' ? '#7c3aed' : '#6b7280',
+                textDecoration: 'none',
+                fontWeight: '500',
+                fontSize: '0.875rem',
+                transition: 'all 0.2s ease-in-out',
+                backgroundColor: currentPath === '/' ? '#f3f4f6' : 'transparent'
+              }}
+              onMouseEnter={(e) => {
+                if (currentPath !== '/') {
+                  e.currentTarget.style.color = '#7c3aed'
+                  e.currentTarget.style.backgroundColor = '#f9fafb'
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (currentPath !== '/') {
+                  e.currentTarget.style.color = '#6b7280'
+                  e.currentTarget.style.backgroundColor = 'transparent'
+                }
+              }}
+            >
+              Explorer
+            </NavLink>
+            <NavLink
+              to='/ipfs'
+              onClick={handleClickEvent}
+              style={{
+                padding: '0.625rem 1.25rem',
+                borderRadius: '8px',
+                color: currentPath === '/ipfs' ? '#7c3aed' : '#6b7280',
+                textDecoration: 'none',
+                fontWeight: '500',
+                fontSize: '0.875rem',
+                transition: 'all 0.2s ease-in-out',
+                backgroundColor: currentPath === '/ipfs' ? '#f3f4f6' : 'transparent'
+              }}
+              onMouseEnter={(e) => {
+                if (currentPath !== '/ipfs') {
+                  e.currentTarget.style.color = '#7c3aed'
+                  e.currentTarget.style.backgroundColor = '#f9fafb'
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (currentPath !== '/ipfs') {
+                  e.currentTarget.style.color = '#6b7280'
+                  e.currentTarget.style.backgroundColor = 'transparent'
+                }
+              }}
+            >
+              IPFS Status
+            </NavLink>
             <NavLink
               onClick={logout}
               style={{

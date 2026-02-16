@@ -21,6 +21,7 @@ function Login({ appData }) {
         const authRes = await authUser({ email, password });
   
         // Update user data state
+        appData.updateLocalStorage({ userData: authRes });
         appData.setUserData(authRes);
         
         // Navigate to dashboard after successful login
