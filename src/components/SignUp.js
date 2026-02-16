@@ -21,7 +21,6 @@ function SignUp({ appData, onSwitchToSignIn }) {
       console.log('Sign up submitted', { email, password, confirmPassword });
       if (password !== confirmPassword) throw new Error('Password Does not match');
       const authRes = await createUser({ email, password });
-
       // Store user data
       appData.updateLocalStorage({ userData: authRes });
       appData.setUserData(authRes);

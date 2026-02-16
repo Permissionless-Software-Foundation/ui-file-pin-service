@@ -423,3 +423,455 @@ input[type=number] {
     font-size: 1rem;
   }
 }
+
+/* IPFS Status styles */
+.ipfs-status-container {
+  min-height: 60vh;
+  padding: 2rem 0;
+  background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
+}
+
+.ipfs-status-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.ipfs-status-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.ipfs-status-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.ipfs-status-subtitle {
+  font-size: 1rem;
+  color: #6b7280;
+  margin: 0;
+  font-weight: 400;
+}
+
+.ipfs-status-metrics {
+  margin-bottom: 2.5rem;
+}
+
+.ipfs-metric-card {
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+.ipfs-metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  border-color: #7c3aed;
+}
+
+.ipfs-metric-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: #6b7280;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.ipfs-metric-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #7c3aed;
+  line-height: 1.2;
+}
+
+.ipfs-status-details {
+  gap: 1.5rem;
+}
+
+.ipfs-detail-section {
+  margin-bottom: 1.5rem;
+}
+
+.ipfs-detail-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: #6b7280;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.ipfs-detail-value {
+  padding: 1.25rem 1.5rem;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease;
+  min-height: 60px;
+}
+
+.ipfs-detail-value:hover {
+  border-color: #7c3aed;
+  box-shadow: 0 2px 6px rgba(124, 58, 237, 0.1);
+}
+
+.ipfs-value-text {
+  font-size: 0.95rem;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Courier New', monospace;
+  word-break: break-all;
+  color: #1f2937;
+  flex: 1;
+  padding-right: 1rem;
+  line-height: 1.5;
+}
+
+.ipfs-copy-icon {
+  cursor: pointer;
+  color: #7c3aed;
+  font-size: 1.1rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ipfs-copy-icon:hover {
+  background-color: #f3f4f6;
+  color: #6d28d9;
+  transform: scale(1.1);
+}
+
+.ipfs-copy-icon:active {
+  transform: scale(0.95);
+}
+
+.ipfs-multiaddrs-container {
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  min-height: 100px;
+}
+
+.ipfs-multiaddr-item {
+  padding: 0.875rem 1rem;
+  margin-bottom: 0.75rem;
+  background: #f9fafb;
+  border-left: 3px solid #7c3aed;
+  border-radius: 6px;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #1f2937;
+  word-break: break-all;
+  transition: all 0.2s ease;
+}
+
+.ipfs-multiaddr-item:last-child {
+  margin-bottom: 0;
+}
+
+.ipfs-multiaddr-item:hover {
+  background: #f3f4f6;
+  border-left-color: #6d28d9;
+  transform: translateX(4px);
+}
+
+.ipfs-empty-message {
+  color: #9ca3af;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.ipfs-status-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  flex-direction: column;
+}
+
+.ipfs-spinner {
+  color: #7c3aed;
+  width: 3rem;
+  height: 3rem;
+}
+
+.ipfs-error-message {
+  color: #ef4444;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 1rem 2rem;
+  background: #fef2f2;
+  border-radius: 8px;
+  border: 1px solid #fecaca;
+}
+
+/* Responsive design for IPFS Status */
+@media (max-width: 992px) {
+  .ipfs-status-wrapper {
+    padding: 1.5rem;
+  }
+
+  .ipfs-status-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .ipfs-status-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ipfs-status-container {
+    padding: 1rem 0;
+  }
+
+  .ipfs-status-wrapper {
+    padding: 1rem 0.75rem;
+  }
+
+  .ipfs-status-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .ipfs-status-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .ipfs-status-subtitle {
+    font-size: 0.875rem;
+    padding: 0 0.5rem;
+  }
+
+  .ipfs-status-metrics {
+    margin-bottom: 2rem;
+  }
+
+  .ipfs-metric-card {
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .ipfs-metric-label {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .ipfs-metric-value {
+    font-size: 2rem;
+  }
+
+  .ipfs-status-details {
+    gap: 1rem;
+  }
+
+  .ipfs-detail-section {
+    margin-bottom: 1.25rem;
+  }
+
+  .ipfs-detail-label {
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .ipfs-detail-value {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: auto;
+  }
+
+  .ipfs-value-text {
+    padding-right: 0;
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+    width: 100%;
+  }
+
+  .ipfs-copy-icon {
+    align-self: flex-end;
+    padding: 0.625rem;
+    font-size: 1.2rem;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .ipfs-multiaddrs-container {
+    padding: 1rem;
+    min-height: auto;
+  }
+
+  .ipfs-multiaddr-item {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .ipfs-status-loading {
+    min-height: 300px;
+    padding: 2rem 1rem;
+  }
+
+  .ipfs-spinner {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .ipfs-error-message {
+    font-size: 1rem;
+    padding: 0.875rem 1.25rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .ipfs-status-container {
+    padding: 0.5rem 0;
+  }
+
+  .ipfs-status-wrapper {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .ipfs-status-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .ipfs-status-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .ipfs-status-subtitle {
+    font-size: 0.8rem;
+    padding: 0;
+  }
+
+  .ipfs-status-metrics {
+    margin-bottom: 1.5rem;
+  }
+
+  .ipfs-metric-card {
+    padding: 1rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .ipfs-metric-label {
+    font-size: 0.65rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .ipfs-metric-value {
+    font-size: 1.75rem;
+  }
+
+  .ipfs-status-details {
+    gap: 0.875rem;
+  }
+
+  .ipfs-detail-section {
+    margin-bottom: 1rem;
+  }
+
+  .ipfs-detail-label {
+    font-size: 0.65rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .ipfs-detail-value {
+    padding: 0.875rem;
+    border-radius: 8px;
+  }
+
+  .ipfs-value-text {
+    font-size: 0.8rem;
+    margin-bottom: 0.625rem;
+  }
+
+  .ipfs-copy-icon {
+    padding: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .ipfs-multiaddrs-container {
+    padding: 0.875rem;
+    border-radius: 8px;
+  }
+
+  .ipfs-multiaddr-item {
+    padding: 0.625rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    border-left-width: 2px;
+  }
+
+  .ipfs-empty-message {
+    font-size: 0.8rem;
+  }
+
+  .ipfs-status-loading {
+    min-height: 250px;
+    padding: 1.5rem 0.75rem;
+  }
+
+  .ipfs-spinner {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .ipfs-error-message {
+    font-size: 0.9rem;
+    padding: 0.75rem 1rem;
+    margin: 0 0.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .ipfs-status-title {
+    font-size: 1.35rem;
+  }
+
+  .ipfs-status-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .ipfs-metric-value {
+    font-size: 1.5rem;
+  }
+
+  .ipfs-value-text {
+    font-size: 0.75rem;
+  }
+
+  .ipfs-multiaddr-item {
+    font-size: 0.7rem;
+    padding: 0.5rem;
+  }
+}
