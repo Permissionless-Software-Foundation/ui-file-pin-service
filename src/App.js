@@ -1,9 +1,10 @@
 import React from 'react';
-import {  Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import { ToastContainer } from 'react-toastify';
 import useAppState from './hooks/state';
-
+import Explorer from './components/explorer';
+import NavMenu from './components/nav-menu/index';
 import './App.css';
 
 
@@ -12,12 +13,12 @@ function App() {
 
   return (
     <>
+      {/** hide navbar on login page */}
+      {appData.currentPath === '/login' ? null : (
+        <NavMenu appData={appData} />
+      )}
       <Routes>
-        <Route path="/" element={<div style={{ padding: '20px', textAlign: 'center' }}>
-          Welcome to File Pin Service
-          <button onClick={appData.logout}>Logout</button>
-          
-          </div>} />
+        <Route path="/" element={<Explorer appData={appData} />} />
         <Route path="/login" element={<Login appData={appData} />} />
       </Routes>
       <ToastContainer />

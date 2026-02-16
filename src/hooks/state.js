@@ -2,10 +2,13 @@
 import { useState, useEffect } from 'react'
 // import { useQueryParam, StringParam } from 'use-query-params'
 import useLocalStorageState from 'use-local-storage-state'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate , useLocation} from 'react-router-dom'
+
+import config from '../config'
 
 function useAppState() {
   const navigate = useNavigate()
+  const location = useLocation()
 
   // Load Local storage Data
   const [lsState, setLSState, { removeItem }] = useLocalStorageState('file-pin', {
@@ -73,6 +76,9 @@ function useAppState() {
     userData,
     setUserData,
     logout,
+    serverUrl: config.pinServer,
+    currentPath: location.pathname,
+
   }
 }
 
