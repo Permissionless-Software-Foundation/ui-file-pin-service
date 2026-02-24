@@ -582,6 +582,9 @@ input[type=number] {
   color: #1f2937;
   word-break: break-all;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .ipfs-multiaddr-item:last-child {
