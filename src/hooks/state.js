@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 // import { useQueryParam, StringParam } from 'use-query-params'
 import useLocalStorageState from 'use-local-storage-state'
 import { useNavigate , useLocation} from 'react-router-dom'
-
+import AppUtil from '../util'
 import config from '../config'
 
 function useAppState() {
@@ -78,6 +78,7 @@ function useAppState() {
     logout,
     serverUrl: config.pinServer,
     currentPath: location.pathname,
+    appUtil: new AppUtil()
 
   }
 }
