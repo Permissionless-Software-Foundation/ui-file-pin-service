@@ -4,7 +4,7 @@
  */
 import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 import { Spinner } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
@@ -18,6 +18,8 @@ const IpfsStatus = ({ appData }) => {
   // Get IPFS Status
   const getIpfsStatus = useCallback(async () => {
     try {
+      if (isLoading) return
+      setIpfsStatus(null)
       setIsLoading(true)
       const response = await axios.get(`${serverUrl}/ipfs`)
       //console.log(response?.data?.status)
@@ -39,7 +41,7 @@ const IpfsStatus = ({ appData }) => {
       console.error(error)
       setIsLoading(false)
     }
-  }, [serverUrl])
+  }, [serverUrl, isLoading])
   const copyToClipboard = (text) => {
     appUtil.copyToClipboard(text)
   }
@@ -54,13 +56,20 @@ const IpfsStatus = ({ appData }) => {
 
   return (
     <div className="ipfs-status-container">
+      <Container className="ipfs-status-wrapper">
+        <div className="ipfs-status-header">
+          <h2 className="ipfs-status-title">Node Status</h2>
+          <p className="ipfs-status-subtitle">Monitor your IPFS node connectivity and network information</p>
+        </div>
+        <Row>
+          <Col xs={12} md={6}>
+            {<Button disabled={isLoading} onClick={() => getIpfsStatus()} className='mt-2'>Refresh</Button>}
+
+          </Col>
+        </Row>
+      </Container>
       {ipfsStatus && (
         <Container className="ipfs-status-wrapper">
-          <div className="ipfs-status-header">
-            <h2 className="ipfs-status-title">Node Status</h2>
-            <p className="ipfs-status-subtitle">Monitor your IPFS node connectivity and network information</p>
-          </div>
-
           <Row className="ipfs-status-metrics">
             <Col xs={12} md={6} className="ipfs-metric-card">
               <div className="ipfs-metric-label">Peers</div>
@@ -77,10 +86,10 @@ const IpfsStatus = ({ appData }) => {
               <div className="ipfs-detail-label">IPFS ID</div>
               <div className="ipfs-detail-value">
                 <span className="ipfs-value-text">{ipfsStatus?.ipfsId}</span>
-                <FontAwesomeIcon 
-                  className="ipfs-copy-icon" 
-                  icon={faCopy} 
-                  onClick={() => copyToClipboard(ipfsStatus?.ipfsId)} 
+                <FontAwesomeIcon
+                  className="ipfs-copy-icon"
+                  icon={faCopy}
+                  onClick={() => copyToClipboard(ipfsStatus?.ipfsId)}
                 />
               </div>
             </Col>
@@ -89,10 +98,10 @@ const IpfsStatus = ({ appData }) => {
               <div className="ipfs-detail-label">BCH Address</div>
               <div className="ipfs-detail-value">
                 <span className="ipfs-value-text">{ipfsStatus?.bchAddr}</span>
-                <FontAwesomeIcon 
-                  className="ipfs-copy-icon" 
-                  icon={faCopy} 
-                  onClick={() => copyToClipboard(ipfsStatus?.bchAddr)} 
+                <FontAwesomeIcon
+                  className="ipfs-copy-icon"
+                  icon={faCopy}
+                  onClick={() => copyToClipboard(ipfsStatus?.bchAddr)}
                 />
               </div>
             </Col>
@@ -101,10 +110,10 @@ const IpfsStatus = ({ appData }) => {
               <div className="ipfs-detail-label">SLP Address</div>
               <div className="ipfs-detail-value">
                 <span className="ipfs-value-text">{ipfsStatus?.slpAddr}</span>
-                <FontAwesomeIcon 
-                  className="ipfs-copy-icon" 
-                  icon={faCopy} 
-                  onClick={() => copyToClipboard(ipfsStatus?.slpAddr)} 
+                <FontAwesomeIcon
+                  className="ipfs-copy-icon"
+                  icon={faCopy}
+                  onClick={() => copyToClipboard(ipfsStatus?.slpAddr)}
                 />
               </div>
             </Col>
@@ -116,11 +125,11 @@ const IpfsStatus = ({ appData }) => {
                   ipfsStatus.multiAddrs.map((addr, idx) => (
                     <div key={idx} className="ipfs-multiaddr-item">
                       <span>{addr}</span>
-                      <FontAwesomeIcon 
-                  className="ipfs-copy-icon" 
-                  icon={faCopy} 
-                  onClick={() => copyToClipboard(addr)} 
-                />
+                      <FontAwesomeIcon
+                        className="ipfs-copy-icon"
+                        icon={faCopy}
+                        onClick={() => copyToClipboard(addr)}
+                      />
                     </div>
                   ))
                 ) : (
