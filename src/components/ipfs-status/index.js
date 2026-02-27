@@ -6,12 +6,11 @@ import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 import { Container, Row, Col } from 'react-bootstrap'
 import { Spinner } from 'react-bootstrap'
-import { toast } from 'react-toastify'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCopy } from '@fortawesome/free-solid-svg-icons'
 
 const IpfsStatus = ({ appData }) => {
-  const { serverUrl } = appData
+  const { serverUrl, appUtil } = appData
   const [ipfsStatus, setIpfsStatus] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -42,8 +41,7 @@ const IpfsStatus = ({ appData }) => {
     }
   }, [serverUrl])
   const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text)
-    toast.success('Copied to clipboard')
+    appUtil.copyToClipboard(text)
   }
 
   // Get IPFS Status when the component mounts
@@ -117,7 +115,12 @@ const IpfsStatus = ({ appData }) => {
                 {ipfsStatus?.multiAddrs?.length > 0 ? (
                   ipfsStatus.multiAddrs.map((addr, idx) => (
                     <div key={idx} className="ipfs-multiaddr-item">
-                      {addr}
+                      <span>{addr}</span>
+                      <FontAwesomeIcon 
+                  className="ipfs-copy-icon" 
+                  icon={faCopy} 
+                  onClick={() => copyToClipboard(addr)} 
+                />
                     </div>
                   ))
                 ) : (
