@@ -74,7 +74,7 @@ const IpfsStatus = ({ appData }) => {
       {ipfsStatus && (
         <Container className="ipfs-status-wrapper">
           <Row className="ipfs-status-metrics">
-            <Col xs={12} md={6} className="ipfs-metric-card">
+            <Col xs={12} md={6} className="ipfs-metric-card" style={{ cursor: 'pointer'}} onClick={()=>{ navigate('/ipfs/peers')}}>
               <div className="ipfs-metric-label">Peers</div>
               <div className="ipfs-metric-value">{ipfsStatus?.peers || 0}</div>
             </Col>

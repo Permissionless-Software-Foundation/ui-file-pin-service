@@ -1120,6 +1120,162 @@ input[type=number] {
   border: 1px solid #fecaca;
 }
 
+/* IPFS Peer Details Button */
+.ipfs-peer-details-button {
+  padding: 0.625rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all 0.2s ease-in-out;
+  border-color: #7c3aed;
+  color: #7c3aed;
+  background-color: transparent;
+}
+
+.ipfs-peer-details-button:hover {
+  background-color: #7c3aed;
+  border-color: #7c3aed;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(124, 58, 237, 0.2);
+}
+
+.ipfs-peer-details-button:active {
+  transform: translateY(0px);
+  box-shadow: 0 1px 2px rgba(124, 58, 237, 0.1);
+}
+
+/* IPFS Peer Details Modal - Desktop Styles */
+.modal-body .ipfs-relay-metrics-container {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: auto;
+  max-height: 70vh;
+  height: auto;
+  padding: 1.5rem;
+}
+
+.modal-body .ipfs-relay-metrics-text {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Ensure modal body uses flex layout when metrics container is present */
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* IPFS Peer Details Modal - Mobile/Tablet Responsive */
+@media (max-width: 992px) {
+  .modal-dialog {
+    max-width: 90% !important;
+    margin: 5% auto !important;
+  }
+
+  .modal-content {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-body .ipfs-relay-metrics-container {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: calc(90vh - 120px);
+    padding: 1rem;
+    height: auto;
+  }
+
+  .modal-body .ipfs-relay-metrics-text {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-dialog {
+    max-width: 90% !important;
+    margin: 5% auto !important;
+  }
+
+  .modal-content {
+    height: 90vh;
+  }
+
+  .modal-header {
+    padding: 1rem;
+  }
+
+  .modal-title {
+    font-size: 1.25rem;
+  }
+
+  .modal-body {
+    padding: 0.75rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-body .ipfs-relay-metrics-container {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: calc(90vh - 100px);
+    padding: 0.875rem;
+    height: auto;
+  }
+
+  .modal-body .ipfs-relay-metrics-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 576px) {
+  .modal-dialog {
+    max-width: 90% !important;
+    margin: 5% auto !important;
+  }
+
+  .modal-content {
+    height: 90vh;
+  }
+
+  .modal-header {
+    padding: 0.875rem;
+  }
+
+  .modal-title {
+    font-size: 1.1rem;
+  }
+
+  .modal-body {
+    padding: 0.625rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-body .ipfs-relay-metrics-container {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: calc(90vh - 90px);
+    padding: 0.75rem;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .modal-body .ipfs-relay-metrics-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+}
+
 /* Responsive design for IPFS Relays */
 @media (max-width: 992px) {
   .ipfs-relays-wrapper {
@@ -1330,5 +1486,10 @@ input[type=number] {
 
   .ipfs-relay-value-text {
     font-size: 0.75rem;
+  }
+
+  .ipfs-peer-details-button {
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
   }
 }
