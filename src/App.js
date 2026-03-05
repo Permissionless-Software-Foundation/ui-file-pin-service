@@ -7,6 +7,7 @@ import Explorer from './components/explorer';
 import NavMenu from './components/nav-menu/index';
 import IpfsStatus from './components/ipfs-status';
 import IpfsRelay from './components/ipfs-relay';
+import IpfsPeers from './components/ipfs-peers';
 import './App.css';
 
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/login" element={<Login appData={appData} />} />
         <Route path="/ipfs" element={<IpfsStatus appData={appData} />} />
         <Route path="/ipfs/relays" element={<IpfsRelay appData={appData} />} />
+        <Route path="/ipfs/peers" element={<IpfsPeers appData={appData} />} />
       </Routes>
       <ToastContainer />
     </>
