@@ -118,6 +118,34 @@ function NavMenu (props) {
               Explorer
             </NavLink>
             <NavLink
+              to='/local'
+              onClick={handleClickEvent}
+              style={{
+                padding: '0.625rem 1.25rem',
+                borderRadius: '8px',
+                color: currentPath === '/local' ? '#7c3aed' : '#6b7280',
+                textDecoration: 'none',
+                fontWeight: '500',
+                fontSize: '0.875rem',
+                transition: 'all 0.2s ease-in-out',
+                backgroundColor: currentPath === '/local' ? '#f3f4f6' : 'transparent'
+              }}
+              onMouseEnter={(e) => {
+                if (currentPath !== '/local') {
+                  e.currentTarget.style.color = '#7c3aed'
+                  e.currentTarget.style.backgroundColor = '#f9fafb'
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (currentPath !== '/local') {
+                  e.currentTarget.style.color = '#6b7280'
+                  e.currentTarget.style.backgroundColor = 'transparent'
+                }
+              }}
+            >
+              Local Pins
+            </NavLink>
+            <NavLink
               to='/ipfs'
               onClick={handleClickEvent}
               style={{
