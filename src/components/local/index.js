@@ -40,14 +40,18 @@ const Local = ({ appData }) => {
       })
 
       setLocalPins(response.data.localPins || [])
-      setIsLoading(false)
       setDataLoaded(true)
 
     } catch (error) {
       console.error(error)
+      if (error?.response?.status === 401) {
+        setDataLoaded(true)
+        navigate('/login')
+      }
+    } finally {
       setIsLoading(false)
     }
-  }, [ isLoading, userData])
+  }, [isLoading, navigate, userData])
 
   const deleteLocalPin = useCallback(async (cid) => {
     try {
@@ -59,16 +63,22 @@ const Local = ({ appData }) => {
         }
       })
       await getLocalPins()
-      setIsLoading(false)
     } catch (error) {
       console.error(error)
+      if (error?.response?.status === 401) {
+        navigate('/login')
+      }
+    } finally {
       setIsLoading(false)
     }
-  }, [getLocalPins, isLoading, userData])
+  }, [getLocalPins, isLoading, navigate, userData])
 
   // Fetch local pins when the component mounts
   useEffect(() => {
-    if(!userData) navigate('/login')
+    if (!userData?.token) {
+      navigate('/login')
+      return
+    }
     if(!dataLoaded) getLocalPins()
   }, [getLocalPins, dataLoaded, userData, navigate])
 
